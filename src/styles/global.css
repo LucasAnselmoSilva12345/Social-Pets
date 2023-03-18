@@ -43,6 +43,7 @@
 }
 
 body {
+  padding-top: 4rem;
   font-size: 1rem;
   font-weight: 400;
   font-family: var(--font-family);
