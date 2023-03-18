@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TOKEN_POST } from '../../api/api.js';
 import { useForm } from '../../hooks/useForm';
 import { Button } from '../Forms/Button';
 import { Input } from '../Forms/Input/index';
@@ -8,32 +9,17 @@ export function LoginForm() {
   const username = useForm();
   const password = useForm('password');
 
-  function handleAuthenticateUser(event) {
+  async function handleAuthenticateUser(event) {
     event.preventDefault();
 
-    if (username.length === 0 || password.length === 0) return;
-
     if (username.validate() && password.validate()) {
-      const user = {
-        username,
-        password,
-      };
+      const { url, options } = TOKEN_POST({
+        username: username.value,
+        password: password.value,
+      });
 
-      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      })
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((json) => {
-          console.log(json);
-          return json;
-        });
+      const response = await fetch(url, options);
+      const json = await response.json();
     }
   }
 
