@@ -6,41 +6,55 @@ import { Input } from '../Forms/Input/index';
 
 export function LoginForm() {
   const username = useForm();
-  const password = useForm();
+  const password = useForm('password');
 
   function handleAuthenticateUser(event) {
     event.preventDefault();
 
     if (username.length === 0 || password.length === 0) return;
 
-    const user = {
-      username,
-      password,
-    };
+    if (username.validate() && password.validate()) {
+      const user = {
+        username,
+        password,
+      };
 
-    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    })
-      .then((response) => {
-        console.log(response);
-        return response.json();
+      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
       })
-      .then((json) => {
-        console.log(json);
-        return json;
-      });
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+          return json;
+        });
+    }
   }
 
   return (
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleAuthenticateUser}>
-        <Input id="username" label="Username" type="text" {...username} />
-        <Input id="password" label="Password" type="password" {...password} />
+        <Input
+          id="username"
+          label="Username"
+          type="text"
+          required
+          {...username}
+        />
+        <Input
+          id="password"
+          label="Password"
+          type="password"
+          required
+          {...password}
+        />
 
         <Button>Enter</Button>
       </form>
