@@ -1,0 +1,12 @@
+.footer {
+  height: 10rem;
+  padding: 3rem 1rem 0;
+  text-align: center;
+  background: var(--color-yellow);
+  color: var(--color-brown);
+}
+
+.footer p {
+  margin-top: 1rem;
+  font-weight: 400;
+}
