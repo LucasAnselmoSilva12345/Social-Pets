@@ -11,10 +11,8 @@
   --font-family: 'Inter', sans-serif;
 
   /* Colors */
-
   --background-color: #ffffff;
   --text-color: #333333;
-
   --color-primary: #ff6b6b;
   --color-primary-light: #ff9a9a;
   --color-primary-dark: #c43a3a;
@@ -32,6 +30,10 @@
   --color-success: #00ff00;
   --color-yellow: #fb1;
   --color-brown: #764701;
+
+  /* Icons */
+  --color-sun-icon: #6e4609;
+  --color-moon-icon: #444653;
 
   /* Shadows */
   --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
