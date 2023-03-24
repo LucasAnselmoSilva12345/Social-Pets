@@ -8,10 +8,11 @@ import style from './style.module.css';
 export function Footer() {
   return (
     <footer className={style.footer}>
-      <DogsFooter />
-      <p>Social Pets. All rights reserved</p>
-
-      <ThemeSwitcher />
+      <div className={`${style.wrapperFooter}`}>
+        <DogsFooter />
+        <p>Social Pets. All rights reserved</p>
+        <ThemeSwitcher />
+      </div>
     </footer>
   );
 }
