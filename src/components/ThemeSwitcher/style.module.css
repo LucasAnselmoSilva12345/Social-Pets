@@ -1,0 +1,13 @@
+.themeSwitcher button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.MoonIcon {
+  color: var(--color-moon-icon);
+}
+
+.SunIcon {
+  color: var(--color-sun-icon);
+}
