@@ -1,8 +1,9 @@
 .footer {
   padding: 3rem 1rem;
 
-  background: var(--color-yellow);
-  color: var(--color-brown);
+  background-color: var(--background-color-footer);
+  color: var(--color-footer);
+  transition: all 0.3s ease-in-out;
 }
 
 .wrapperFooter {
