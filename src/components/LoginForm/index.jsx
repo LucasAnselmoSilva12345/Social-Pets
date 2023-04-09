@@ -20,8 +20,8 @@ export function LoginForm() {
   }
 
   return (
-    <section>
-      <h1>Login</h1>
+    <section className="animeLeft container">
+      <h1 className="title">Login</h1>
       <form action="" onSubmit={handleAuthenticateUser}>
         <Input
           id="username"
