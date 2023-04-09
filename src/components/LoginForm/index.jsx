@@ -4,6 +4,7 @@ import { useForm } from '../../hooks/useForm';
 import { Button } from '../Forms/Button';
 import { Input } from '../Forms/Input/index';
 import { UserContext } from '../../contexts/UserContext.jsx';
+import { Warning } from '../Warning';
 
 export function LoginForm() {
   const username = useForm();
@@ -44,7 +45,7 @@ export function LoginForm() {
           <Button>Enter</Button>
         )}
 
-        {error && <p>{error}</p>}
+        {error && <Warning errorMessage={error} />}
       </form>
       <Link to="/login/create-user">Create user</Link>
     </section>
