@@ -7,13 +7,16 @@
   border: none;
   border-radius: 0.4rem;
   background-color: var(--color-yellow);
-  color: var(--color-brown);
+  color: var(--color-brown-dark);
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
-.button:hover,
+.button:hover {
+  filter: opacity(0.7);
+}
+
 .button:focus {
   outline: none;
   box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1;

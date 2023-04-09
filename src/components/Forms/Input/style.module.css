@@ -13,12 +13,13 @@
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  border: 2px solid var(--color-medium-white);
+  border: 0.0625rem solid var(--color-light);
   border-radius: 0.4rem;
-  background-color: var(--color-medium-white);
+  background-color: var(--color-light);
   transition: 0.2s;
 }
 
+.input:hover,
 .input:focus {
   outline: none;
   border: 2px solid var(--color-yellow);
