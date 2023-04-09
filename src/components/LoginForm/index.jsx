@@ -6,6 +6,9 @@ import { Input } from '../Forms/Input/index';
 import { UserContext } from '../../contexts/UserContext.jsx';
 import { Warning } from '../Warning';
 
+import style from './style.module.css';
+import styleBtn from '../Forms/Button/style.module.css';
+
 export function LoginForm() {
   const username = useForm();
   const password = useForm();
@@ -21,9 +24,9 @@ export function LoginForm() {
   }
 
   return (
-    <section className="animeLeft container">
+    <section className="animeLeft">
       <h1 className="title">Login</h1>
-      <form action="" onSubmit={handleAuthenticateUser}>
+      <form onSubmit={handleAuthenticateUser} className={style.form}>
         <Input
           id="username"
           label="Username"
@@ -47,7 +50,20 @@ export function LoginForm() {
 
         {error && <Warning errorMessage={error} />}
       </form>
-      <Link to="/login/create-user">Create user</Link>
+
+      <Link className={style.lostPassword} to="/login/lost-password">
+        Lost password?
+      </Link>
+
+      <div className={style.register}>
+        <h2 className={style.subtitle}>Register</h2>
+        <p className={style.paragraph}>
+          If you don't have an account, register now!
+        </p>
+        <Link className={styleBtn.button} to="/login/create-user">
+          Create account
+        </Link>
+      </div>
     </section>
   );
 }
