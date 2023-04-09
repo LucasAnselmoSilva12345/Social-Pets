@@ -9,7 +9,7 @@ export function LoginForm() {
   const username = useForm();
   const password = useForm();
 
-  const { userLogin } = useContext(UserContext);
+  const { userLogin, error, loading } = useContext(UserContext);
 
   async function handleAuthenticateUser(event) {
     event.preventDefault();
@@ -38,7 +38,13 @@ export function LoginForm() {
           {...password}
         />
 
-        <Button>Enter</Button>
+        {loading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button>Enter</Button>
+        )}
+
+        {error && <p>{error}</p>}
       </form>
       <Link to="/login/create-user">Create user</Link>
     </section>
