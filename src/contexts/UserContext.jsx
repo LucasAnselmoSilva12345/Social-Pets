@@ -1,5 +1,6 @@
-import React, { createContext, useState } from 'react';
-import { TOKEN_POST, USER_GET } from '../api/api';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from '../api/api';
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext();
 
@@ -8,6 +9,19 @@ export function UserStorage({ children }) {
   const [isLogged, setIsLogged] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const userLogout = useCallback(
+    async function () {
+      setDataUser(null);
+      setError(null);
+      setLoading(false);
+      setIsLogged(false);
+      window.localStorage.removeItem('token');
+      navigate('/login');
+    },
+    [navigate]
+  );
 
   async function getUser(token) {
     try {
@@ -37,6 +51,7 @@ export function UserStorage({ children }) {
       const { token } = await response.json();
       window.localStorage.setItem('token', token);
       await getUser(token);
+      navigate('/account');
     } catch (error) {
       setError(error.message);
       setIsLogged(false);
@@ -45,8 +60,35 @@ export function UserStorage({ children }) {
     }
   }
 
+  useEffect(() => {
+    async function autoLogin() {
+      const token = window.localStorage.getItem('token');
+      if (token) {
+        try {
+          setError(null);
+          setLoading(true);
+
+          const { url, options } = TOKEN_VALIDATE_POST(token);
+          const response = await fetch(url, options);
+          console.log(response);
+          if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+          await getUser(token);
+        } catch (error) {
+          setError(error.message);
+          setIsLogged(false);
+          userLogout();
+        } finally {
+          setLoading(false);
+        }
+      }
+    }
+    autoLogin();
+  }, [userLogout]);
+
   return (
-    <UserContext.Provider value={{ userLogin, dataUser }}>
+    <UserContext.Provider
+      value={{ userLogin, dataUser, userLogout, error, isLogged, loading }}
+    >
       {children}
     </UserContext.Provider>
   );
