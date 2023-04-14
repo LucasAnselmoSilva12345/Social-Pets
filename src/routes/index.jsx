@@ -6,6 +6,8 @@ import { Login } from '../components/Login';
 import { Home } from '../pages/Home';
 
 import { UserStorage } from '../contexts/UserContext';
+import { UserProfile } from '../components/User/UserProfile';
+import { ProtectedRoute } from '../utils/ProtectedRoute';
 
 export function RoutesApp() {
   return (
@@ -16,6 +18,14 @@ export function RoutesApp() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login/*" element={<Login />} />
+            <Route
+              path="/account/*"
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
