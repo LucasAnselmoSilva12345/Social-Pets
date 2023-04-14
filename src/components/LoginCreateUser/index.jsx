@@ -4,6 +4,8 @@ import { Button } from '../Forms/Button/index';
 import { useForm } from '../../hooks/useForm';
 import { USER_POST } from '../../api/api';
 import { UserContext } from '../../contexts/UserContext';
+import { useAPIFetch } from '../../hooks/useAPIFetch';
+import { Warning } from '../Warning';
 
 export function LoginCreateUser() {
   const username = useForm();
@@ -11,6 +13,7 @@ export function LoginCreateUser() {
   const password = useForm('password');
 
   const { userLogin } = useContext(UserContext);
+  const { fetchAPIData, loading, error } = useAPIFetch();
 
   async function createUserAccount(event) {
     event.preventDefault();
@@ -27,7 +30,7 @@ export function LoginCreateUser() {
 
     const { url, options } = USER_POST(dataUser);
 
-    const response = await fetch(url, options);
+    const { response } = await fetchAPIData(url, options);
 
     if (!response.ok) {
       console.log('Error');
@@ -67,7 +70,13 @@ export function LoginCreateUser() {
           {...password}
         />
 
-        <Button>Register</Button>
+        {loading ? (
+          <Button disabled>Registering...</Button>
+        ) : (
+          <Button>Register</Button>
+        )}
+
+        <Warning errorMessage={error} />
       </form>
     </section>
   );
