@@ -5,7 +5,7 @@ export const useAPIFetch = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  const request = useCallback(async (url, options) => {
+  const fetchAPIData = useCallback(async (url, options) => {
     let response;
     let json;
 
@@ -31,6 +31,6 @@ export const useAPIFetch = () => {
     dataUser,
     loading,
     error,
-    request,
+    fetchAPIData,
   };
 };
