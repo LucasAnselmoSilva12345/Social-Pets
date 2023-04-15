@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { UserHeaderNav } from '../UserHeaderNav';
+import { UserHeaderNav } from '../UserHeaderNav/index.jsx';
 
 import style from './style.module.css';
 import { useLocation } from 'react-router-dom';
