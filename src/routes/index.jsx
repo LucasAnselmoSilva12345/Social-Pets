@@ -6,7 +6,7 @@ import { Login } from '../components/Login';
 import { Home } from '../pages/Home';
 
 import { UserStorage } from '../contexts/UserContext';
-import { UserProfile } from '../components/User/UserProfile';
+import { UserAccount } from '../components/User/UserAccount';
 import { ProtectedRoute } from '../utils/ProtectedRoute';
 
 export function RoutesApp() {
@@ -22,7 +22,7 @@ export function RoutesApp() {
               path="/account/*"
               element={
                 <ProtectedRoute>
-                  <UserProfile />
+                  <UserAccount />
                 </ProtectedRoute>
               }
             />
