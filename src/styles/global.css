@@ -184,28 +184,6 @@ input {
   --color-footer: var(--color-brown);
 }
 
-.title {
-  font-size: 3rem;
-  font-family: var(--font-family);
-  line-height: 1;
-  margin: 1rem 0;
-  position: relative;
-  z-index: 1;
-}
-
-.title::after {
-  content: '';
-  display: block;
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
-  bottom: 5px;
-  left: -5px;
-  border-radius: 0.2rem;
-  background-color: var(--color-yellow);
-  z-index: -1;
-}
-
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
