@@ -125,18 +125,6 @@
   --z-index-toast: 400;
 }
 
-body {
-  padding-top: 4rem;
-  font-size: 1rem;
-  font-weight: 400;
-  font-family: var(--font-family);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--background-color);
-
-  transition: all 0.3s ease-in-out;
-}
-
 h1,
 h2,
 h3,
