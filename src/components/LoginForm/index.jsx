@@ -25,7 +25,9 @@ export function LoginForm() {
 
   return (
     <section className="animeLeft">
-      <h1 className="title">Login</h1>
+      <h1 className="text-5xl font-inter my-4 mx-0 relative z-1 after:content-[''] after:block after:w-6 after:h-6 after:absolute after:bottom-1 after:-left-4px after:rounded after:bg-colorYellow after:z-sub">
+        Login
+      </h1>
       <form onSubmit={handleAuthenticateUser} className={style.form}>
         <Input
           id="username"
