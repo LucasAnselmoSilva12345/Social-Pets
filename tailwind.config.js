@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        '-4px': '-4px',
+      },
       maxWidth: {
         '8xl': '50rem',
       },
@@ -16,8 +19,11 @@ export default {
         colorWhite: '#FFFFFF',
         colorGray: '#F5F5F5',
         shadowHeader: 'rgba(0, 0, 0, 0.1)',
+        colorYellow: '#FB1',
       },
       zIndex: {
+        sub: '-1',
+        1: '1',
         100: '100',
       },
     },
