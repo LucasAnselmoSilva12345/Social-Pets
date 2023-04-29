@@ -22,6 +22,8 @@ export default {
         colorBlack: '#000000',
         colorWhite: '#FFFFFF',
         colorGray: '#F5F5F5',
+        colorGrayDark: '#d1d1d1',
+        colorMediumDark: '#666666',
         shadowHeader: 'rgba(0, 0, 0, 0.1)',
         colorYellow: '#FB1',
         colorBrownDark: '#c56c00',
