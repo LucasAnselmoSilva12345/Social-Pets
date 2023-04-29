@@ -6,6 +6,9 @@ export default {
       spacing: {
         '-4px': '-4px',
       },
+      minWidth: {
+        '1/8': '8rem',
+      },
       maxWidth: {
         '8xl': '50rem',
       },
@@ -20,6 +23,8 @@ export default {
         colorGray: '#F5F5F5',
         shadowHeader: 'rgba(0, 0, 0, 0.1)',
         colorYellow: '#FB1',
+        colorBrownDark: '#c56c00',
+        shadowButton: '0 0 0 3px #fea, 0 0 0 4px #fb1',
       },
       zIndex: {
         sub: '-1',

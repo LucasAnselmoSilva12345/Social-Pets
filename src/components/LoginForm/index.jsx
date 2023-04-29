@@ -7,7 +7,6 @@ import { UserContext } from '../../contexts/UserContext.jsx';
 import { Warning } from '../Warning';
 
 import style from './style.module.css';
-import styleBtn from '../Forms/Button/style.module.css';
 
 export function LoginForm() {
   const username = useForm();
@@ -62,7 +61,7 @@ export function LoginForm() {
         <p className={style.paragraph}>
           If you don't have an account, register now!
         </p>
-        <Link className={styleBtn.button} to="/login/create-user">
+        <Link className='min-w-1/8 py-3 px-5 text-base font-medium font-inter border-none rounded-md bg-colorYellow text-colorBrownDark box-border transition-opacity ease-in-out cursor-pointer hover:opacity-70 focus:outline-none focus:shadow-shadowButton disabled:opacity-50 disabled:cursor-wait' to="/login/create-user">
           Create account
         </Link>
       </div>
