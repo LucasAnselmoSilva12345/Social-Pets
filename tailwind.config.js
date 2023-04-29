@@ -25,6 +25,8 @@ export default {
         colorYellow: '#FB1',
         colorBrownDark: '#c56c00',
         shadowButton: '0 0 0 3px #fea, 0 0 0 4px #fb1',
+        colorInput: '#EEEEEE',
+        colorError: '#ff0000',
       },
       zIndex: {
         sub: '-1',

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import style from './style.module.css';
-
 export function Input({
   id,
   label,
@@ -13,8 +11,8 @@ export function Input({
   onBlur,
 }) {
   return (
-    <div className={style.wrapper}>
-      <label htmlFor={id} className={style.label}>
+    <div className='mt-2 mr-0 mb-4 ml-0'>
+      <label htmlFor={id} className='block pb-2 text-base'>
         {label}
       </label>
       <input
@@ -25,9 +23,9 @@ export function Input({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        className={style.input}
+        className='w-full p-3 text-base border border-solid border-colorInput rounded-md bg-colorInput transition-all hover:outline-none hover:border-2 hover:border-solid hover:border-colorYellow focus:outline-none focus:border-2 focus:border-solid focus:border-colorYellow'
       />
-      {error && <p className={style.error}>{error}</p>}
+      {error && <p className='mt-1 text-sm font-bold text-colorError'>{error}</p>}
     </div>
   );
 }
