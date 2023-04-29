@@ -10,6 +10,7 @@ export default {
         '1/8': '8rem',
       },
       maxWidth: {
+        '4/8': '30rem',
         '8xl': '50rem',
       },
       fontFamily: {
@@ -33,6 +34,9 @@ export default {
         1: '1',
         100: '100',
       },
+      backgroundImage: {
+        'loginPage': "url('/src/assets/login.jpg')",
+      }
     },
     plugins: [],
   },

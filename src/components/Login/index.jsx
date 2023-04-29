@@ -6,16 +6,14 @@ import { LoginPasswordLost } from '../LoginPasswordLost';
 import { LoginPasswordReset } from '../LoginPasswordReset';
 import { UserContext } from '../../contexts/UserContext';
 
-import style from './style.module.css';
-
 export function Login() {
   const { isLogged } = useContext(UserContext);
 
   if (isLogged) return <Navigate to="/account" />;
 
   return (
-    <section className={style.login}>
-      <div className={style.formsPage}>
+    <section className='grid grid-cols-1 min-h-screen before:hidden md:grid-cols-2 md:gap-8 md:before:content-[""] md:before:block md:before:bg-loginPage md:before:bg-no-repeat md:before:bg-center md:before:bg-cover'>
+      <div className='max-w-full p-5 md:max-w-4/8 md:p-4 md:mt-36'>
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="create-user" element={<LoginCreateUser />} />
