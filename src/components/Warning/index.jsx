@@ -1,7 +1,9 @@
-import style from './style.module.css';
-
 export function Warning({ errorMessage }) {
   if (!errorMessage) return null;
 
-  return <p className={style.message}>{errorMessage}</p>;
+  return (
+    <p className="my-4 mx-0 text-right text-base text-colorError">
+      {errorMessage}
+    </p>
+  );
 }
