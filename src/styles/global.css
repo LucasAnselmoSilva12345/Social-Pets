@@ -166,24 +166,6 @@ input {
   padding: 0 1rem;
 }
 
-.dark-theme {
-  /* Dark Theme */
-  --dark: #22272e;
-  --dark-medium: #212529;
-  --text: #f5f5f5;
-
-  /* Bodies Colors */
-  --background-color: var(--dark);
-  --color-text: var(--text);
-
-  /* Header's Color */
-  --background-color-header: var(--dark-medium);
-
-  /* Footer's Colors */
-  --background-color-footer: var(--dark-medium);
-  --color-footer: var(--color-brown);
-}
-
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
