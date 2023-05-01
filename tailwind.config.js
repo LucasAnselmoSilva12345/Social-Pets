@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -38,8 +39,8 @@ export default {
         100: '100',
       },
       backgroundImage: {
-        'loginPage': "url('/src/assets/login.jpg')",
-      }
+        loginPage: "url('/src/assets/login.jpg')",
+      },
     },
     plugins: [],
   },

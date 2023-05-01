@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import style from './style.module.css';
 
 export function ThemeSwitcher() {
+  const root = window.document.documentElement;
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   const handleThemeChange = () => {
@@ -13,9 +14,9 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     if (theme === 'light') {
-      document.documentElement.classList.remove('dark-theme');
+      root.classList.remove('dark');
     } else {
-      document.documentElement.classList.add('dark-theme');
+      root.classList.add('dark');
     }
 
     localStorage.setItem('theme', theme);
