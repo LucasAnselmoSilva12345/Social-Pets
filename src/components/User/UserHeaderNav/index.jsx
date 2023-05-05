@@ -1,42 +1,62 @@
-import { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
-import { ChartLine, Plus, SignOut, UserCircle } from '@phosphor-icons/react';
+
+import { ReactComponent as PhotoFeedSVG } from '../../../assets/feed.svg';
+import { ReactComponent as AnalyticsSVG } from '../../../assets/estatisticas.svg';
+import { ReactComponent as AddPhoto } from '../../../assets/adicionar.svg';
+import { ReactComponent as Logout } from '../../../assets/sair.svg';
+
+import style from './style.module.css';
+import { useMedia } from '../../../hooks/useMedia.js';
+
 export function UserHeaderNav() {
-  const [mobile, setMobile] = useState(null);
   const { userLogout } = useContext(UserContext);
+  const mobile = useMedia('(max-width: 40rem)');
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    setMobileMenu(false);
+  }, [pathname]);
+
+  function activeMobileMenu() {
+    setMobileMenu(!mobileMenu);
+  }
 
   return (
-    <nav id="userHeaderNav" className="grid grid-cols-4 gap-4">
-      <NavLink
-        to="/account"
-        end
-        className="h-10 w-10 flex items-center justify-center border-2 border-solid border-transparent rounded-sm transition-all ease-in-out cursor-pointer hover:border-slate-700 hover:outline-none focus:border-slate-700 focus:outline-none"
+    <>
+      {mobile && (
+        <button
+          aria-label="Menu de opções do usuário"
+          onClick={activeMobileMenu}
+          className={`${style.mobileButton} ${
+            mobileMenu && style.mobileButtonActive
+          }`}
+        ></button>
+      )}
+      <nav
+        className={`${mobile ? style.navMobile : style.nav} ${
+          mobileMenu && style.navMobileActive
+        }`}
       >
-        <UserCircle size={30} />
-        {mobile && <p>My photos</p>}
-      </NavLink>
-      <NavLink
-        to="/account/analytics"
-        className="h-10 w-10 flex items-center justify-center border-2 border-solid border-transparent rounded-sm transition-all ease-in-out cursor-pointer hover:border-slate-700 hover:outline-none focus:border-slate-700 focus:outline-none"
-      >
-        <ChartLine size={30} />
-        {mobile && <p>Analytics</p>}
-      </NavLink>
-      <NavLink
-        to="/account/post"
-        className="h-10 w-10 flex items-center justify-center border-2 border-solid border-transparent rounded-sm transition-all ease-in-out cursor-pointer hover:border-slate-700 hover:outline-none focus:border-slate-700 focus:outline-none"
-      >
-        <Plus size={30} />
-        {mobile && <p>Add photo</p>}
-      </NavLink>
-      <button
-        onClick={userLogout}
-        className="h-10 w-10 flex items-center justify-center border-2 border-solid border-transparent rounded-sm transition-all ease-in-out cursor-pointer hover:border-slate-700 hover:outline-none focus:border-slate-700 focus:outline-none"
-      >
-        <SignOut size={30} />
-        {mobile && <p>Logout</p>}
-      </button>
-    </nav>
+        <NavLink to="/account" end>
+          <PhotoFeedSVG />
+          {mobile && <p>My photos</p>}
+        </NavLink>
+        <NavLink to="/account/analytics">
+          <AnalyticsSVG />
+          {mobile && <p>Analytics</p>}
+        </NavLink>
+        <NavLink to="/account/post">
+          <AddPhoto />
+          {mobile && <p>Add photo</p>}
+        </NavLink>
+        <button onClick={userLogout}>
+          <Logout />
+          {mobile && <p>Logout</p>}
+        </button>
+      </nav>
+    </>
   );
 }
