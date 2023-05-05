@@ -1,9 +1,8 @@
 import { Moon, SunDim } from '@phosphor-icons/react';
 import React, { useState, useEffect } from 'react';
 
-import style from './style.module.css';
-
 export function ThemeSwitcher() {
+  const root = window.document.documentElement;
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   const handleThemeChange = () => {
@@ -13,21 +12,24 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     if (theme === 'light') {
-      document.documentElement.classList.remove('dark-theme');
+      root.classList.remove('dark');
     } else {
-      document.documentElement.classList.add('dark-theme');
+      root.classList.add('dark');
     }
 
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
-    <div className={style.themeSwitcher}>
-      <button onClick={handleThemeChange}>
+    <div>
+      <button
+        className="border-none cursor-pointer bg-none"
+        onClick={handleThemeChange}
+      >
         {theme === 'light' ? (
-          <Moon className={style.MoonIcon} size={32} />
+          <Moon className="text-grayBlueDark" size={32} />
         ) : (
-          <SunDim className={style.SunIcon} size={32} />
+          <SunDim className="dark:text-txtDarkMedium" size={32} />
         )}
       </button>
     </div>

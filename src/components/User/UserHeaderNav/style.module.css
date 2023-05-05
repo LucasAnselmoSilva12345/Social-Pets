@@ -6,14 +6,14 @@
 
 .nav a,
 .nav button {
-  background-color: #eee;
-  border-radius: 0.2rem;
-  height: 2.5rem;
   width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  border-radius: 0.2rem;
+  background-color: #eee;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -22,15 +22,15 @@
 .nav a:focus,
 .nav button:hover,
 .nav button:focus {
-  background-color: #fff;
-  box-shadow: 0 0 0 3px #eee;
-  border-color: #333;
   outline: none;
+  border-color: #333;
+  box-shadow: 0 0 0 3px #eee;
+  background-color: #fff;
 }
 
 .nav a:global(.active) {
-  background-color: #fff;
   border-color: #fb1;
+  background-color: #fff;
 }
 
 .nav a:global(.active) svg > * {
@@ -38,15 +38,15 @@
 }
 
 .mobileButton {
-  background-color: #eee;
-  border-radius: 0.2rem;
-  height: 2.5rem;
   width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.2rem;
+  background-color: #eee;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -55,7 +55,7 @@
   content: '';
   display: block;
   width: 1.2rem;
-  height: 2px;
+  height: 0.125rem;
   border-radius: 2px;
   background-color: currentColor;
   box-shadow: 0 6px currentColor, 0 -6px currentColor;
@@ -66,17 +66,17 @@
 .mobileButton:hover,
 .mobileButtonActive {
   outline: none;
-  background: white;
-  box-shadow: 0 0 0 3px #fea;
   border-color: #fb1;
+  box-shadow: 0 0 0 3px #fea;
+  background: white;
   color: #fb1;
 }
 
 .mobileButtonActive::after {
-  transform: rotate(90deg);
-  width: 4px;
-  height: 4px;
+  width: 0.25rem;
+  height: 0.25rem;
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
+  transform: rotate(90deg);
 }
 
 .navMobile {
@@ -85,11 +85,11 @@
   top: 70px;
   right: 0;
   padding: 0 1rem;
+  opacity: 0;
+  border-radius: 0.2rem;
   background-color: white;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 0.2rem;
   transform: translateX(-10px);
-  opacity: 0;
   pointer-events: none;
 }
 
@@ -103,14 +103,14 @@
 
 .navMobile a,
 .navMobile button {
+  width: 100%;
+  padding: 0.5rem 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  width: 100%;
   border: none;
   border-bottom: 1px solid #eee;
-  padding: 0.5rem 0;
+  background: none;
   cursor: pointer;
 }
 

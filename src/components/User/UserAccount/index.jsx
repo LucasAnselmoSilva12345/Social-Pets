@@ -6,7 +6,7 @@ import { UserAnalytics } from '../UserAnalytics';
 
 export function UserAccount() {
   return (
-    <section className="container">
+    <section className="container my-0 mx-auto py-0 px-4">
       <UserHeader />
       <Routes>
         <Route path="/" element={<Feed />} />

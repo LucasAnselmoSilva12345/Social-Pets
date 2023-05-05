@@ -3,25 +3,32 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Dogs } from '../../assets/dogs.svg';
 import { UserContext } from '../../contexts/UserContext';
 
-import style from './style.module.css';
+import { User } from '@phosphor-icons/react';
 
 export function Header() {
   const { dataUser } = useContext(UserContext);
 
   return (
-    <header className={style.header}>
-      <nav className={`${style.nav} container`}>
-        <Link to="/" aria-label="Dogs - Home" className={style.logoImg}>
+    <header className="fixed w-full top-0 z-100 shadow-sm ease-in-out duration-300 bg-white dark:bg-darkMedium">
+      <nav className="h-16 flex items-center justify-between  container my-0 mx-auto py-0 px-4">
+        <Link to="/" aria-label="Dogs - Home" className="py-2 px-0">
           <Dogs />
         </Link>
 
         {dataUser ? (
-          <Link to="/account" className={style.login}>
+          <Link
+            to="/account"
+            className="flex items-center text-colorTextBase ease-in-out duration-300 dark:text-txtColorHeader"
+          >
             {dataUser.nome}
           </Link>
         ) : (
-          <Link to="/login" className={style.login}>
+          <Link
+            to="/login"
+            className="flex items-center gap-1 text-colorTextBase ease-in-out duration-300 dark:text-txtColorHeader"
+          >
             Login / Criar
+            <User size={18} className="font-bold" />
           </Link>
         )}
       </nav>
