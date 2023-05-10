@@ -14,7 +14,7 @@ export function UserHeader() {
       case '/account/analytics':
         setUserHeaderTitle('Analytics');
         break;
-      case '/account/post':
+      case '/account/photo-post':
         setUserHeaderTitle('Post your photo');
         break;
       default:
@@ -23,7 +23,7 @@ export function UserHeader() {
   }, [location]);
 
   return (
-    <header className='mt-4 mr-0 mb-8 ml-0 relative grid grid-cols-[1fr_auto] items-center'>
+    <header className="mt-4 mr-0 mb-8 ml-0 relative grid grid-cols-[1fr_auto] items-center">
       <h1 className="text-5xl font-inter my-4 mx-0 relative z-1 after:content-[''] after:block after:w-6 after:h-6 after:absolute after:bottom-1 after:-left-4px after:rounded after:bg-colorYellow after:z-sub">
         {userHeaderTitle}
       </h1>
