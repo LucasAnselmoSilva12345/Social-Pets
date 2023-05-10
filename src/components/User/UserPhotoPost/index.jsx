@@ -9,9 +9,9 @@ import { Warning } from '../../Warning/';
 import { useNavigate } from 'react-router-dom';
 
 export function UserPhotoPost() {
-  const nome = useForm('text');
-  const peso = useForm('number');
-  const idade = useForm('number');
+  const userInputAnimalName = useForm('text');
+  const userInputAnimalWeight = useForm('number');
+  const userInputAnimalAge = useForm('number');
   const [img, setImg] = useState({});
   const { dataUser, loading, error, fetchAPIData } = useAPIFetch();
   const navigate = useNavigate();
@@ -25,9 +25,9 @@ export function UserPhotoPost() {
 
     const formData = new FormData();
     formData.append('img', img.raw);
-    formData.append('nome', nome.value);
-    formData.append('peso', peso.value);
-    formData.append('idade', idade.value);
+    formData.append('nome', userInputAnimalName.value);
+    formData.append('peso', userInputAnimalWeight.value);
+    formData.append('idade', userInputAnimalAge.value);
 
     const userToken = window.localStorage.getItem('token');
     const { url, options } = PHOTO_POST(formData, userToken);
@@ -44,15 +44,27 @@ export function UserPhotoPost() {
   return (
     <section className="grid grid-cols-2 gap-8 mb-8">
       <form onSubmit={handlePostPetPhoto}>
-        <Input label="Names pet" type="text" name="nome" required {...nome} />
+        <Input
+          label="Names pet"
+          type="text"
+          name="userInputAnimalName"
+          required
+          {...userInputAnimalName}
+        />
         <Input
           label="Weight pet"
           type="number"
-          name="peso"
+          name="userInputAnimalWeight"
           required
-          {...peso}
+          {...userInputAnimalWeight}
         />
-        <Input label="Age pet" type="number" name="idade" required {...idade} />
+        <Input
+          label="Age pet"
+          type="number"
+          name="userInputAnimalAge"
+          required
+          {...userInputAnimalAge}
+        />
 
         <input
           type="file"
