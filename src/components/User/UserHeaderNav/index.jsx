@@ -48,7 +48,7 @@ export function UserHeaderNav() {
           <AnalyticsSVG />
           {mobile && <p>Analytics</p>}
         </NavLink>
-        <NavLink to="/account/post">
+        <NavLink to="/account/photo-post">
           <AddPhoto />
           {mobile && <p>Add photo</p>}
         </NavLink>

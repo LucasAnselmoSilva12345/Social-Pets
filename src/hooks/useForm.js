@@ -8,7 +8,15 @@ const VALIDATION_RULES = {
   password: {
     regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
     message:
-      'A senha deve ter 8 caracteres, uma letra maiúscula, uma minúscula e um número',
+      'Please enter a valid password. It must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter and 1 number',
+  },
+  number: {
+    regex: /^\d+$/,
+    message: 'Please enter a valid number',
+  },
+  text: {
+    regex: /^[a-zA-Z]+$/,
+    message: 'Please enter a valid text',
   },
 };
 
