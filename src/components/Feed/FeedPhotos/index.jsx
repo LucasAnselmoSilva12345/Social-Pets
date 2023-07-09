@@ -5,7 +5,7 @@ import { PHOTOS_GET } from '../../../api/api.js';
 import { Warning } from '../../Warning';
 import { Loading } from '../../Loading';
 
-export function FeedPhotos() {
+export function FeedPhotos({ setModalPhoto }) {
   const { dataUser, loading, error, fetchAPIData } = useAPIFetch();
 
   useEffect(() => {
@@ -18,19 +18,18 @@ export function FeedPhotos() {
 
   if (error) return <Warning errorMessage={error} />;
   if (loading) return <Loading />;
-
   if (!dataUser) return null;
-
-  console.log(dataUser);
 
   return (
     <ul className="grid grid-cols-1 gap-4 mb-4 justify-items-center md:grid-cols-2 lg:grid-cols-3">
       {dataUser.map((photo) => (
         <FeedPhotoItem
           key={photo.id}
+          photo={photo}
           srcPhoto={photo.src}
           altPhoto={photo.title}
           totalAccess={photo.acessos}
+          setModalPhoto={setModalPhoto}
         />
       ))}
     </ul>
