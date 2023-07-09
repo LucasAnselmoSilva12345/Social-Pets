@@ -1,5 +1,9 @@
-import style from './style.module.css';
+import { Feed } from '../../components/Feed';
 
 export function Home() {
-  return <h1>Home</h1>;
+  return (
+    <section className="container mt-16">
+      <Feed />
+    </section>
+  );
 }
