@@ -33,7 +33,6 @@ export function UserStorage({ children }) {
       const json = await response.json();
       setDataUser(json);
       setIsLogged(true);
-      console.log(json);
     } catch (error) {
       setError(error.message);
       setIsLogged(false);
@@ -70,7 +69,6 @@ export function UserStorage({ children }) {
 
           const { url, options } = TOKEN_VALIDATE_POST(token);
           const response = await fetch(url, options);
-          console.log(response);
           if (!response.ok) throw new Error(`Error: ${response.statusText}`);
           await getUser(token);
         } catch (error) {

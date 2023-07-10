@@ -1,10 +1,9 @@
-import { FeedModal } from './FeedModal';
 import { FeedPhotos } from './FeedPhotos';
 
 export function Feed() {
   return (
     <div>
-      <FeedModal />
+      <h1 className="mb-8 text-5xl font-bold">Feed</h1>
       <FeedPhotos />
     </div>
   );
