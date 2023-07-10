@@ -5,7 +5,7 @@ import { PHOTOS_GET } from '../../../api/api.js';
 import { Warning } from '../../Warning';
 import { Loading } from '../../Loading';
 
-export function FeedPhotos({ setModalPhoto }) {
+export function FeedPhotos() {
   const { dataUser, loading, error, fetchAPIData } = useAPIFetch();
 
   useEffect(() => {
@@ -26,10 +26,10 @@ export function FeedPhotos({ setModalPhoto }) {
         <FeedPhotoItem
           key={photo.id}
           photo={photo}
+          authorPhoto={photo.author}
           srcPhoto={photo.src}
           altPhoto={photo.title}
           totalAccess={photo.acessos}
-          setModalPhoto={setModalPhoto}
         />
       ))}
     </ul>
