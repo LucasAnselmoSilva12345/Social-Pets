@@ -6,7 +6,7 @@ import { Warning } from '../../Warning';
 import { Loading } from '../../Loading';
 import { PhotoContent } from '../../Photo/PhotoContent';
 
-export function FeedModal({ photo }) {
+export function FeedModal({ photo, setModalPhoto }) {
   const { dataUser, error, loading, fetchAPIData } = useAPIFetch();
 
   useEffect(() => {
@@ -14,8 +14,14 @@ export function FeedModal({ photo }) {
     fetchAPIData(url, options);
   }, [photo, fetchAPIData]);
 
+  function handleOutsideClick(event) {
+    if (event.target === event.currentTarget) {
+      setModalPhoto(null);
+    }
+  }
+
   return (
-    <div className={style.modalContainer}>
+    <div className={style.modalContainer} onClick={handleOutsideClick}>
       {error && <Warning errorMessage={error} />}
       {loading && <Loading />}
 

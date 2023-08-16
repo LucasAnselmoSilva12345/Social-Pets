@@ -1,0 +1,23 @@
+.photoContainer {
+  margin: auto;
+  height: 36rem;
+  border-radius: 0.2rem;
+  background: white;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 36rem 20rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleUp 0.3s forwards;
+}
+
+@keyframes scaleUp {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+.photoContainerDetails {
+}

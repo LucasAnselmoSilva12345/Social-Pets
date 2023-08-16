@@ -8,7 +8,9 @@ export function Feed() {
   return (
     <div>
       <h1 className="mb-8 text-5xl font-bold">Feed</h1>
-      {modalPhoto && <FeedModal photo={modalPhoto} />}
+      {modalPhoto && (
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+      )}
       <FeedPhotos setModalPhoto={setModalPhoto} />
     </div>
   );
