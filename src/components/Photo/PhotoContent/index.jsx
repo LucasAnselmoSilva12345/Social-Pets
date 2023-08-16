@@ -1,32 +1,29 @@
 import { Link } from 'react-router-dom';
-import { PhotoComments } from '../PhotoComments';
+
+import style from './style.module.css';
 
 export function PhotoContent({ photoData }) {
-  const { photo, comments } = photoData;
   return (
-    <div className="">
-      <div>
-        <img src={photo.src} alt={photo.title} />
+    <div className={style.photoContainer}>
+      <div className={style.photoImg}>
+        <img src={photoData.src} alt={photoData.title} />
       </div>
 
-      <div>
+      <div className={style.photoContainerDetails}>
         <div>
           <p>
-            <Link to={`/profile/${photo.author}`}>@{photo.author}</Link>
-            <span>{photo.acessos}</span>
+            <Link to={`/profile/${photoData.author}`}>@{photoData.author}</Link>
+            <span>{photoData.acessos}</span>
           </p>
           <h1>
-            <Link to={`/photo/${photo.id}`}>{photo.title}</Link>
+            <Link to={`/photo/${photoData.id}`}>{photoData.title}</Link>
           </h1>
-
           <ul>
-            <li>{photo.peso}</li>
-            <li>{photo.idade}</li>
+            <li>{photoData.peso} kg</li>
+            <li>{photoData.idade} ano(s)</li>
           </ul>
         </div>
       </div>
-
-      <PhotoComments photoID={photo.id} comments={comments} />
     </div>
   );
 }
