@@ -8,6 +8,7 @@ import { Home } from '../pages/Home';
 import { UserStorage } from '../contexts/UserContext';
 import { UserAccount } from '../components/User/UserAccount';
 import { ProtectedRoute } from '../utils/ProtectedRoute';
+import { NotFound } from '../components/NotFound';
 
 export function RoutesApp() {
   return (
@@ -26,6 +27,7 @@ export function RoutesApp() {
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
