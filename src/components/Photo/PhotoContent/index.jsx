@@ -4,13 +4,14 @@ import style from './style.module.css';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import { PhotoDelete } from '../PhotoDelete';
+import { ImageSkeleton } from '../../ImageSkeleton';
 
 export function PhotoContent({ photoData }) {
   const user = useContext(UserContext);
   return (
     <div className={style.photoContainer}>
       <div className={style.photoImg}>
-        <img src={photoData.src} alt={photoData.title} />
+        <ImageSkeleton src={photoData.src} alt={photoData.title} />
       </div>
 
       <div className={style.photoContainerDetails}>
