@@ -5,16 +5,20 @@ import { PHOTOS_GET } from '../../../api/api.js';
 import { Warning } from '../../Warning';
 import { Loading } from '../../Loading';
 
-export function FeedPhotos({ setModalPhoto }) {
+export function FeedPhotos({ page, user, setModalPhoto, setInfinite }) {
   const { dataUser, loading, error, fetchAPIData } = useAPIFetch();
 
   useEffect(() => {
     async function fetchPhotos() {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
+      const total = 6;
+      const { url, options } = PHOTOS_GET({ page, total, user });
       const { response, json } = await fetchAPIData(url, options);
+      if (response && response.ok && json.length < total) {
+        setInfinite(false);
+      }
     }
     fetchPhotos();
-  }, [fetchAPIData]);
+  }, [fetchAPIData, user, page, setInfinite]);
 
   if (error) return <Warning errorMessage={error} />;
   if (loading) return <Loading />;
