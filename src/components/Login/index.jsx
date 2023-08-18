@@ -19,7 +19,7 @@ export function Login() {
           <Route path="/" element={<LoginForm />} />
           <Route path="create-user" element={<LoginCreateUser />} />
           <Route path="/lost-password" element={<LoginPasswordLost />} />
-          <Route path="password-reset" element={<LoginPasswordReset />} />
+          <Route path="/password-reset" element={<LoginPasswordReset />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
