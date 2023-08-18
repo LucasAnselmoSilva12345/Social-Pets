@@ -2,7 +2,7 @@ import style from './style.module.css';
 
 export function Loading() {
   return (
-    <div className={style.wrapper}>
+    <div className="absolute w-full h-screen flex top-0 left-0 z-1000">
       <div className={style.loading}>
         <svg
           width="46"

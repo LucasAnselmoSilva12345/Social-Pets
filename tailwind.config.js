@@ -42,6 +42,7 @@ export default {
         sub: '-1',
         1: '1',
         100: '100',
+        1000: '1000',
       },
       backgroundImage: {
         loginPage: "url('/src/assets/login.jpg')",

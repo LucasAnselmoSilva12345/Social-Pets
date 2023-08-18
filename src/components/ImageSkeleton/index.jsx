@@ -10,7 +10,7 @@ export function ImageSkeleton({ alt, ...props }) {
   }
 
   return (
-    <div className={style.wrapper}>
+    <div className="grid">
       {skeleton && <div className={style.skeleton}></div>}
 
       <img onLoad={handleLoad} className={style.img} alt={alt} {...props} />
