@@ -7,6 +7,7 @@ import { useAPIFetch } from '../../../hooks/useAPIFetch';
 import { PHOTO_POST } from '../../../api/api.js';
 import { Warning } from '../../Warning/';
 import { useNavigate } from 'react-router-dom';
+import { Head } from '../../Head';
 
 export function UserPhotoPost() {
   const userInputAnimalName = useForm('text');
@@ -43,6 +44,7 @@ export function UserPhotoPost() {
 
   return (
     <section className="mb-4">
+      <Head title="Post your photo" />
       <form onSubmit={handlePostPetPhoto}>
         <Input
           label="Names pet"

@@ -44,6 +44,7 @@ export function LoginPasswordReset() {
 
   return (
     <section className="mt-5">
+      <Head title="Reset your password" />
       <h1 className="mb-4 text-4xl font-inter font-bold text-zinc-800">
         Reset your password!
       </h1>

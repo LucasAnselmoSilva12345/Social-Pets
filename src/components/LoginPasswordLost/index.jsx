@@ -5,6 +5,7 @@ import { useForm } from '../../hooks/useForm';
 import { useAPIFetch } from '../../hooks/useAPIFetch';
 import { PASSWORD_LOST } from '../../api/api';
 import { Warning } from '../Warning';
+import { Head } from '../Head';
 
 export function LoginPasswordLost() {
   const login = useForm();
@@ -23,6 +24,7 @@ export function LoginPasswordLost() {
 
   return (
     <section className="mt-5">
+      <Head title="Lost password" />
       <h1 className="mb-4 text-4xl font-inter font-bold text-zinc-800">
         Lost your password ?
       </h1>

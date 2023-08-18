@@ -6,6 +6,7 @@ import { USER_POST } from '../../api/api';
 import { UserContext } from '../../contexts/UserContext';
 import { useAPIFetch } from '../../hooks/useAPIFetch';
 import { Warning } from '../Warning';
+import { Head } from '../Head';
 
 export function LoginCreateUser() {
   const username = useForm();
@@ -42,6 +43,7 @@ export function LoginCreateUser() {
 
   return (
     <section className="animeLeft">
+      <Head title="Create user" />
       <h1 className="text-5xl font-inter my-4 mx-0 relative z-1 after:content-[''] after:block after:w-6 after:h-6 after:absolute after:bottom-1 after:-left-4px after:rounded after:bg-colorYellow after:z-sub">
         Register
       </h1>
