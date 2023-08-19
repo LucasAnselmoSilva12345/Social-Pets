@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
-
-import style from './style.module.css';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 import { PhotoDelete } from '../PhotoDelete';
 import { ImageSkeleton } from '../../ImageSkeleton';
+import { Eye } from '@phosphor-icons/react';
+
+import style from './style.module.css';
 
 export function PhotoContent({ photoData }) {
   const user = useContext(UserContext);
@@ -15,22 +16,28 @@ export function PhotoContent({ photoData }) {
       </div>
 
       <div className={style.photoContainerDetails}>
-        <div>
-          <p>
+        <div className="flex flex-col gap-4">
+          <p className="flex items-center justify-between">
             {user.data && user.data.username === photoData.author ? (
               <PhotoDelete id={photoData.id} />
             ) : (
-              <Link to={`/profile/${photoData.author}`}>
+              <Link
+                to={`/profile/${photoData.author}`}
+                className="text-base text-zinc-800 font-medium"
+              >
                 @{photoData.author}
               </Link>
             )}
-            <span>{photoData.acessos}</span>
+            <span className="text-zinc-700 font-light text-sm flex items-center justify-center gap-1">
+              <Eye />
+              {photoData.acessos}
+            </span>
           </p>
-          <h1>
+          <h1 className="text-6xl font-bold text-center">
             <Link to={`/photo/${photoData.id}`}>{photoData.title}</Link>
           </h1>
-          <ul>
-            <li>{photoData.peso} kg</li>
+          <ul className="flex items-center justify-between text-sm font-medium">
+            <li className="">{photoData.peso} kg</li>
             <li>{photoData.idade} ano(s)</li>
           </ul>
         </div>

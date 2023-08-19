@@ -2,7 +2,7 @@
   margin: auto;
   height: 36rem;
   border-radius: 0.2rem;
-  background: white;
+  background: #e7f5ff;
   display: grid;
   align-items: center;
   grid-template-columns: 36rem 20rem;
@@ -20,4 +20,7 @@
 }
 
 .photoContainerDetails {
+  height: inherit;
+  padding: 2.25rem 0.5rem 0 0.5rem;
+  background: #e7f5ff;
 }
