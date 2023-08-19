@@ -11,9 +11,6 @@ export function UserHeader() {
   useEffect(() => {
     const { pathname } = location;
     switch (pathname) {
-      case '/account/analytics':
-        setUserHeaderTitle('Analytics');
-        break;
       case '/account/photo-post':
         setUserHeaderTitle('Post your photo');
         break;
