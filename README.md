@@ -24,7 +24,7 @@ $ git clone https://github.com/LucasAnselmoSilva12345/Social-Pets
 
 ```sh
 
-$ cd pasta
+$ cd Social-Pets
 
 ```
 
